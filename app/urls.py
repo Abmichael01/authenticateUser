@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 urlpatterns = [
+    path("", index, name="index"),
     path("login/", login_user, name="login"),
     path("register/", register_user, name="register"),
     path("verify-username", csrf_exempt(verify_username), name="verify-username"),
