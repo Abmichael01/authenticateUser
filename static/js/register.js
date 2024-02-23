@@ -14,7 +14,7 @@ usernameField.addEventListener("keyup", (e)=>{
     usernameError.style.display = "none"
     usernameField.classList.remove("error")
 
-    submit.removeAttribute("disabled")    
+        
 
     if(usernameval.length > 0){
         usernameSuccess.textContent = "Checking " + usernameval
@@ -28,7 +28,9 @@ usernameField.addEventListener("keyup", (e)=>{
                 usernameField.classList.add("error")
                 usernameError.style.display = "block"
                 usernameError.textContent = data.username_error
-                submit.disabled = disabled
+                submit.disabled = true
+            }else{
+                submit.removeAttribute("disabled")
             }
         })
     }
@@ -53,6 +55,9 @@ emailField.addEventListener("keyup", (e)=>{
                 emailField.classList.add("error")
                 emailError.style.display = "block"
                 emailError.textContent = data.email_error
+                submit.disabled = true
+            }else{
+                submit.removeAttribute("disabled")
             }
         })
     }
