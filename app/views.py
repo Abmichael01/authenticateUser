@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 
 
+def index(request):
+    return redirect("login")
 
 def verify_username(request):
     data = json.loads(request.body)
