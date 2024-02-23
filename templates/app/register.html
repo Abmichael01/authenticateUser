@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Register
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login_reg.css' %}">
+
+<div class="form-cont">
+    <h2>Register</h2>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="username" placeholder="Username" class="username">
+            <p class="username-error error"></p>
+            <p class="username-success success"></p>
+        </div>
+
+        <div>
+            <input type="text" name="email" placeholder="Email" class="email">
+            <p class="email-error error"></p>
+            <p class="email-success error"></p>
+        </div>
+        
+        <div>
+            <input type="password" name="password1" placeholder="Password">
+        </div>
+        <div>
+            <input type="password" name="password2" placeholder="Confirm password">
+        </div>
+        <button type="submit" class="submit">Register</button>
+        <a href="{% url 'login' %}"><p class="login">Login</p></a>
+    </form>
+</div>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock content %}

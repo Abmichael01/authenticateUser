@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Home | Authentication
+{% endblock title %}
+
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/success.css' %}">
+  <div class="home">
+    <h2>Welcome, {{request.user}}</h2>
+    <a href="{% url 'logout' %}"><button>Logout</button></a>
+  </div>
+{% endblock content %}
