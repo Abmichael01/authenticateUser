@@ -4,6 +4,7 @@ const usernameSuccess = document.querySelector(".username-success")
 const emailField = document.querySelector(".email")
 const emailError = document.querySelector(".email-error")
 const emailSuccess = document.querySelector(".email-success")
+const submit = document.querySelector(".submit")
 
 
 
@@ -12,6 +13,8 @@ usernameField.addEventListener("keyup", (e)=>{
     
     usernameError.style.display = "none"
     usernameField.classList.remove("error")
+
+    submit.removeAttribute("disabled")    
 
     if(usernameval.length > 0){
         usernameSuccess.textContent = "Checking " + usernameval
@@ -25,6 +28,7 @@ usernameField.addEventListener("keyup", (e)=>{
                 usernameField.classList.add("error")
                 usernameError.style.display = "block"
                 usernameError.textContent = data.username_error
+                submit.disabled = disabled
             }
         })
     }
